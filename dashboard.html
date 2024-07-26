@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="form.html">Fill the Form</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>Admin Dashboard</h1>
+        <button onclick="clearReports()">Clear Reports</button>
+        <div id="map"></div>
+        <table id="reportsTable">
+            <thead>
+                <tr>
+                    <th>Issue Type</th>
+                    <th>Description</th>
+                    <th>Address</th>
+                    <th>Location</th>
+                    <th>Photo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Reports will be dynamically inserted here -->
+            </tbody>
+        </table>
+    </div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>
+
+
+

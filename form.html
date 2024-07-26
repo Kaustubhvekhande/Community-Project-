@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Road Condition</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>Report Road Condition</h1>
+        <form id="reportForm">
+            <label for="issueType">Issue Type:</label>
+            <select id="issueType" name="issueType" required>
+                <option value="pothole">Pothole</option>
+                <option value="erosion">Erosion</option>
+                <option value="other">Other</option>
+            </select>
+
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" rows="4" required></textarea>
+
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" required>
+
+            <label for="photo">Upload Photo:</label>
+            <input type="file" id="photo" name="photo" accept="image/*" onchange="previewImage(event)">
+            <div id="photoPreview"></div>
+
+            <button type="button" onclick="getLocation()">Get Location</button>
+            <div id="locationInfo"></div>
+
+            <button type="submit">Submit Report</button>
+        </form>
+    </div>
+    <script src="form.js"></script>
+</body>
+</html>
+
+
+    
+
+
