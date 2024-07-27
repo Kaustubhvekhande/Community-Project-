@@ -1,6 +1,6 @@
 // dashboard.js
 
-function initMap() {
+function initDashboard() {
     // Check if the user is logged in
     const isLoggedIn = localStorage.getItem('isLoggedIn');
     if (!isLoggedIn) {
@@ -9,29 +9,7 @@ function initMap() {
         return;
     }
 
-    let map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: 37.7749, lng: -122.4194},
-        zoom: 10
-    });
-
     let reports = JSON.parse(localStorage.getItem('reports')) || [];
-    reports.forEach(report => {
-        let [latitude, longitude] = report.locationInfo.match(/Latitude: (-?\d+\.\d+), Longitude: (-?\d+\.\d+)/).slice(1, 3).map(Number);
-
-        let marker = new google.maps.Marker({
-            position: {lat: latitude, lng: longitude},
-            map: map,
-            title: report.issueType
-        });
-
-        let infowindow = new google.maps.InfoWindow({
-            content: `<strong>${report.issueType}</strong><br>${report.description}<br>${report.address}<br>${report.locationInfo}`
-        });
-
-        marker.addListener('click', () => {
-            infowindow.open(map, marker);
-        });
-    });
 
     // Populate table
     let tableBody = document.querySelector('#reportsTable tbody');
@@ -77,4 +55,4 @@ function clearReports() {
     location.reload();
 }
 
-document.addEventListener('DOMContentLoaded', initMap);
+document.addEventListener('DOMContentLoaded', initDashboard);
