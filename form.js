@@ -1,5 +1,3 @@
-// form.js
-
 document.getElementById('reportForm').addEventListener('submit', function(event) {
     event.preventDefault();
 
@@ -90,4 +88,3 @@ function previewImage(event) {
     };
     reader.readAsDataURL(event.target.files[0]);
 }
-

@@ -1,6 +1,14 @@
 // dashboard.js
 
 function initMap() {
+    // Check if the user is logged in
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    if (!isLoggedIn) {
+        alert('You need to log in to access the dashboard.');
+        window.location.href = 'login.html';
+        return;
+    }
+
     let map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: 37.7749, lng: -122.4194},
         zoom: 10
@@ -69,3 +77,4 @@ function clearReports() {
     location.reload();
 }
 
+document.addEventListener('DOMContentLoaded', initMap);
